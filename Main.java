@@ -41,5 +41,39 @@ public class Main {
         for (Employe e : infoDept) {
             System.out.println(e);
         }
+        //prosit9
+        DepartementHashSet gestion = new DepartementHashSet();
+
+        Departement d1 = new Departement(1, "Informatique", 25);
+        Departement d2 = new Departement(2, "Comptabilité", 10);
+        Departement d3 = new Departement(3, "Ressources Humaines", 15);
+        Departement d4 = new Departement(2, "Comptabilité", 10); // doublon
+
+        // Ajout
+        gestion.ajouterDepartement(d1);
+        gestion.ajouterDepartement(d2);
+        gestion.ajouterDepartement(d3);
+        gestion.ajouterDepartement(d4); // ne sera pas ajouté (déjà existant)
+
+        // Affichage
+        gestion.afficherDepartement();
+
+        // Recherche
+        System.out.println("Recherche 'Comptabilité' : "+ gestion.rechercheDepartement("Comptabilité"));
+                System.out.println("Recherche objet d3 : " + gestion.rechercherDepartement(d3));
+
+                        //  Suppression
+                        gestion.supprimerDepartement(d2);
+        gestion.afficherDepartement();
+
+        // Tri bi id
+        gestion.trierDepartementParId();
+
+        // Tri par Nom w Nbr d'employés
+        gestion.trierDepartementsParNomEtNombreEmployes();
     }
 }
+
+
+
+
