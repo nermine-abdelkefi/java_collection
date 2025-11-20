@@ -61,8 +61,7 @@ public class Main {
         // Recherche
         System.out.println("Recherche 'Comptabilité' : "+ gestion.rechercheDepartement("Comptabilité"));
                 System.out.println("Recherche objet d3 : " + gestion.rechercherDepartement(d3));
-
-                        //  Suppression
+                //  Suppression
                         gestion.supprimerDepartement(d2);
         gestion.afficherDepartement();
 
@@ -71,6 +70,43 @@ public class Main {
 
         // Tri par Nom w Nbr d'employés
         gestion.trierDepartementsParNomEtNombreEmployes();
+        //*********************************************
+        // a partir min prosit 10
+
+      // Création de la structure d’affectation
+        AffectationHashMap affect = new AffectationHashMap();
+
+      // Création des dép
+        Departement dep1 = new Departement(10, "Info", 25);
+        Departement dep2 = new Departement(20, "web", 15);
+        Departement dep3 = new Departement(30, "IT", 20);
+
+     // Affectation emp  aux dép
+        affect.ajouterEmployeDepartement(e1, dep1);
+        affect.ajouterEmployeDepartement(e2, dep2);
+        affect.ajouterEmployeDepartement(e3, dep1);
+        affect.ajouterEmployeDepartement(e4, dep3);
+        affect.ajouterEmployeDepartement(e5, dep1);
+
+    // Test : ajout un emp  déjà affecté
+        affect.ajouterEmployeDepartement(e1, dep3);
+
+   // Aff des affectations
+        affect.afficherEmployesEtDepartements();
+
+   // Supp d’un emp
+        System.out.println("\n supp ta3 e2");
+        affect.supprimerEmploye(e2);
+        affect.afficherEmployesEtDepartements();
+
+   // Recherche
+        System.out.println("\nRech employé e3 : " + affect.rechercherEmploye(e3));
+        System.out.println("Recherche département IT : " + affect.rechercherDepartement(dep3));
+
+  // Tri des affectations
+        System.out.println("\n--- Tri emp ---");
+        System.out.println(affect.trierMap());
+
     }
 }
 
